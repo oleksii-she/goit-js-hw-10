@@ -7,6 +7,9 @@ const search = document.querySelector('#search-box');
 const countryList = document.querySelector('.country-list');
 const countryInfo = document.querySelector('.country-info');
 function handlerSearchCountri(e) {
+  countryList.innerHTML = '';
+
+  countryInfo.innerHTML = '';
   const nameSearc = e.target.value.trim();
   if (nameSearc.length < 2) {
     Notiflix.Notify.info(
@@ -19,13 +22,11 @@ function handlerSearchCountri(e) {
         Notiflix.Notify.failure(err, 'Oops, there is no country with that name')
       );
   }
-  if (nameSearc === ' ') {
-    countryList.innerHTML = '';
-  }
 }
 
 function creatMarkup(obj) {
   console.log(obj);
+
   if (obj.length > 10) {
     Notiflix.Notify.info(
       'Too many matches found. Please enter a more specific name'
