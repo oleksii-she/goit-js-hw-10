@@ -43,6 +43,10 @@ display: block;
 margin-left: 5px;
 margin-bottom: 0px;
 margin-top: 0px;
+
+font-size: 34px;
+font-weight: 700;
+line-height: 37px;
 }
 .country-info_box{
   display: flex;
@@ -50,4 +54,15 @@ margin-top: 0px;
 }
 .country-info_list{
   padding: 0;
+}
+.country-info_item{
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 37px;
+}
+
+.country-info_span{
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 27px;
 }

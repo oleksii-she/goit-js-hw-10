@@ -13,17 +13,11 @@ function handlerSearchCountri(e) {
 
   const nameSearc = e.target.value.trim();
 
-  if (nameSearc.length < 1) {
-    Notiflix.Notify.info(
-      'Too many matches found. Please enter a more specific name'
+  fetchCountries(nameSearc)
+    .then(data => creatMarkup(data))
+    .catch(err =>
+      Notiflix.Notify.failure(err, 'Oops, there is no country with that name')
     );
-  } else {
-    fetchCountries(nameSearc)
-      .then(data => creatMarkup(data))
-      .catch(err =>
-        Notiflix.Notify.failure(err, 'Oops, there is no country with that name')
-      );
-  }
 }
 
 function creatMarkup(obj) {
@@ -50,9 +44,15 @@ function creatMarkup(obj) {
         }" height="30" ><h2  class="country-title">${
           el.name.official
         }</h2></div><ul  class="country-info_list">
-    <li>Capiatal: ${el.capital}</li>
-    <li>Population: ${el.population}</li>
-    <li>Languages: ${Object.values(el.languages)}</li>
+    <li class="country-info_item">Capiatal: <span class="country-info_span">${
+      el.capital
+    }</span></li>
+    <li class="country-info_item">Population: <span class="country-info_span">${
+      el.population
+    }</span></li>
+    <li class="country-info_item">Languages: <span class="country-info_span">${Object.values(
+      el.languages
+    )}</span></li>
     </ul>
    `;
       })
