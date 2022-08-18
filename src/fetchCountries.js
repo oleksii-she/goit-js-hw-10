@@ -13,13 +13,3 @@ function fetchCountries(name) {
     }
   });
 }
-
-// Oops, there is no country with that name
-
-// if (res.status === 404) {
-//   throw new Error('error');
-// }
-
-// .catch(err =>
-//   Notiflix.Notify.failure(err, 'Oops, there is no country with that name')
-// );
