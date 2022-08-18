@@ -28,6 +28,7 @@ body {
 }
 .country-list_item{
   display: flex;
+  margin-bottom: 5px;
 }
 
 .country-span{
