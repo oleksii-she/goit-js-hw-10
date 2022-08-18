@@ -12,9 +12,11 @@ function handlerSearchCountri(e) {
 
   if (nameSearc === '') {
     countryList.innerHTML = '';
+
     return;
   }
   countryInfo.innerHTML = '';
+
   fetchCountries(nameSearc)
     .then(data => {
       creatMarkup(data);
@@ -26,6 +28,7 @@ function handlerSearchCountri(e) {
 }
 
 function creatMarkup(obj) {
+  console.log(obj);
   if (obj.length > 10) {
     Notiflix.Notify.info(
       'Too many matches found. Please enter a more specific name'
@@ -41,7 +44,7 @@ function creatMarkup(obj) {
       .join(' ');
 
     countryList.innerHTML = markup;
-  } else {
+  } else if (obj.length === 1) {
     const markupInfo = obj
       .map(el => {
         return `<div class="country-info_box"><img src="${
@@ -63,7 +66,7 @@ function creatMarkup(obj) {
       })
       .join(' ')
       .replaceAll(',', ', ');
-
+    countryList.innerHTML = '';
     countryInfo.innerHTML = markupInfo;
   }
 }
