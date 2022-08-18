@@ -16,7 +16,7 @@ function handlerSearchCountri(e) {
   fetchCountries(nameSearc)
     .then(data => creatMarkup(data))
     .catch(err =>
-      Notiflix.Notify.failure(err, 'Oops, there is no country with that name')
+      Notiflix.Notify.failure('Oops, there is no country with that name')
     );
 }
 
@@ -31,7 +31,7 @@ function creatMarkup(obj) {
   if (obj.length >= 2) {
     const markup = obj
       .map(el => {
-        return `<li><img src="${el.flags.svg}" width="35"><span class="country-span">${el.name.official}</span></li>`;
+        return `<li class="country-list_item"><img src="${el.flags.svg}" width="45"><span class="country-span">${el.name.official}</span></li>`;
       })
       .join(' ');
 

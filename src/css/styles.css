@@ -26,6 +26,9 @@ body {
   flex-direction: column;
   margin: auto;
 }
+.country-list_item{
+  display: flex;
+}
 
 .country-span{
   margin-left: 5px;
