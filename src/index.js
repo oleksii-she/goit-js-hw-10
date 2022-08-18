@@ -19,6 +19,9 @@ function handlerSearchCountri(e) {
         Notiflix.Notify.failure(err, 'Oops, there is no country with that name')
       );
   }
+  if (nameSearc === ' ') {
+    countryList.innerHTML = '';
+  }
 }
 
 function creatMarkup(obj) {
@@ -34,9 +37,11 @@ function creatMarkup(obj) {
 
   // }
   if (obj.length >= 2) {
-    const markup = obj.map(el => {
-      return `<li><img src="${el.flags.svg}" width="35"><span class="country-span">${el.name.official}</span></li>`;
-    });
+    const markup = obj
+      .map(el => {
+        return `<li><img src="${el.flags.svg}" width="35"><span class="country-span">${el.name.official}</span></li>`;
+      })
+      .join(' ');
 
     countryList.innerHTML = markup;
   } else {
